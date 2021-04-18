@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="../public/images/mailroo.ico">
+    <title>Mailroo</title>
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+</head>
+<body>
+    <!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ]
+  }
+  ```
+-->
+<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+      <div>
+          <a href="/">
+        <img class="mx-auto h-20 w-auto" src="../public/images/MailrooTransparentBackground.png" alt="mailroo"> 
+        </a>
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          Sign Up to your account
+        </h2>
+        <div class="mt-6" id="my-signin2"></div>
+        <script>
+        function onSuccess(googleUser) {
+          console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+          }
+         function onFailure(error) {
+         console.log(error);
+         }
+         function renderButton() {
+         gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 400,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+         });
+         }
+         </script>
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+        <p class="mt-2 text-left text-sm font-bold text-gray-600">
+            <a href="/login" class="font-medium text-blue-600 hover:text-blue-500">
+              Already have an account? Log In
+            </a>
+          </p>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>>
